@@ -51,10 +51,9 @@ public class CreateAccountSteps {
     }
 
     @And("^user inputs name (.*) surname (.*) password (.*)$")
-    public void userInputsNameKarol(String name, String surname, String password) {
+    public void userInputsNameSurnamePassword(String name, String surname, String password) {
 
         WebDriverWait wait = new WebDriverWait(driver, 100);
-
         WebElement name1 = wait.until(ExpectedConditions.elementToBeClickable(By.id("customer_firstname")));
         name1.clear();
         name1.sendKeys(name);
