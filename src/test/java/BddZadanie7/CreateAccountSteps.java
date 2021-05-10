@@ -16,7 +16,7 @@ import java.util.Random;
 public class CreateAccountSteps {
 
     WebDriver driver;
-    //Random random = new Random();
+    Random random = new Random();
 
 
     @Given("^user is on user is on gloaApps site$")
@@ -30,16 +30,16 @@ public class CreateAccountSteps {
 
     }
 
-    @When("^user inputs email (.*) address into CREATE AN ACCOUNT section$")
-    public void userInputsEmailAddressIntoCREATEANACCOUNTSection(String email) {
+    @When("^user inputs email address into CREATE AN ACCOUNT section$")
+    public void userInputsEmailAddressIntoCREATEANACCOUNTSection() {
 
-        //String [] emailAddress = {"@vp.pl", "@gmail.com", "@onet.pl", "@o2.pl"};
+        String [] emailAddress = {"@vp.pl", "@gmail.com", "@onet.pl", "@o2.pl"};
 
         WebElement emailElement = driver.findElement(By.id("email_create"));
         emailElement.clear();
-        //int randomMail = random.nextInt(emailAddress.length - 1);
-        //int randomNumMail = random.nextInt(1000000);
-        emailElement.sendKeys(email);
+        int randomMail = random.nextInt(emailAddress.length - 1);
+        int randomNumMail = random.nextInt(1000000);
+        emailElement.sendKeys(randomNumMail + emailAddress[randomMail]);
 
     }
 
@@ -58,22 +58,6 @@ public class CreateAccountSteps {
         WebElement name1 = wait.until(ExpectedConditions.elementToBeClickable(By.id("customer_firstname")));
         name1.clear();
         name1.sendKeys(name);
-
-        WebElement surnameElement = driver.findElement(By.id("customer_lastname"));
-        surnameElement.clear();
-        surnameElement.sendKeys(surname);
-
-        WebElement passwordElement = driver.findElement(By.id("passwd"));
-        passwordElement.clear();
-        passwordElement.sendKeys(password);
-    }
-
-    @And("^user inputs name (.*), surname (.*), password (.*)$")
-    public void userInputsNameSurnamePassword(String name, String surname, String password) {
-
-        WebElement nameElement = driver.findElement(By.id("customer_firstname"));
-        nameElement.clear();
-        nameElement.sendKeys(name);
 
         WebElement surnameElement = driver.findElement(By.id("customer_lastname"));
         surnameElement.clear();
