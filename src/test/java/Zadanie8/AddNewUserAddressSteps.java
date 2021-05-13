@@ -31,7 +31,6 @@ public class AddNewUserAddressSteps {
         loginPage.loginAs("jankowalski@vp.pl", "6434737235");
 
     }
-    private AddressPage addressPage;
 
     @When("^User goes to Address page$")
     public void userGoesToAddressPage() {
