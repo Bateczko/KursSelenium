@@ -78,7 +78,6 @@ public class AddressPage {
         Assert.assertEquals("New address", pageHeaderMessage.getText());
     }
 
-
     public static void changeAddress (String address, String postcode, String city){
         addressInput.click();
         addressInput.clear();
