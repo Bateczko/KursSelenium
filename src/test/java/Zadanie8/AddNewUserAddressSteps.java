@@ -9,7 +9,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import Zadanie8.page.AddressPage;
 import pageObjectPattern.pages.LoginPage;
-
 import java.util.concurrent.TimeUnit;
 
 public class AddNewUserAddressSteps {
@@ -22,7 +21,7 @@ public class AddNewUserAddressSteps {
         System.setProperty("webdriver.chrome.driver",
                     "src/main/resources/drivers/chromedriver.exe");
         driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         // Zmaksymalizuj okno przeglądarki
         driver.manage().window().maximize();
         // Przejdź do Google
@@ -30,10 +29,12 @@ public class AddNewUserAddressSteps {
 
         LoginPage loginPage = new LoginPage(driver);
         loginPage.loginAs("jankowalski@vp.pl", "6434737235");
-    }
 
-    @When("^User goes to UserAddFirstAddress page$")
-    public void userGoesToUserAddFirstAddressPage() {
+    }
+    private AddressPage addressPage;
+
+    @When("^User goes to Address page$")
+    public void userGoesToAddressPage() {
         AddressPage addressPage = new AddressPage(driver);
         addressPage.clickAccountPageButton();
         addressPage.addNewAddress();
@@ -47,7 +48,8 @@ public class AddNewUserAddressSteps {
 
     @And("^User selects country$")
     public void userSelectsCountry() {
-        AddressPage.selectCountry();
+        AddressPage addressPage = new AddressPage(driver);
+        addressPage.selectCountry();
     }
 
     @And("^User saves new address$")

@@ -11,7 +11,7 @@ import java.util.List;
 
 public class AddressPage {
 
-    private static WebDriver driver;
+    private WebDriver driver;
 
     @FindBy(xpath = "//a[@title='View my customer account']")
     private static WebElement accountPageButton;
@@ -58,12 +58,12 @@ public class AddressPage {
         this.driver = driver;
     }
 
-    public static void clickAccountPageButton() {
+    public void clickAccountPageButton() {
         accountPageButton.click();
         Assert.assertEquals("Your account", pageHeaderMessage.getText());
     }
 
-    public static void addNewAddress() {
+    public void addNewAddress() {
         addFirstAddressButton.click();
 
         String urlAddAddress = "addresses";
@@ -78,7 +78,7 @@ public class AddressPage {
         Assert.assertEquals("New address", pageHeaderMessage.getText());
     }
 
-    public static void changeAddress (String address, String postcode, String city){
+    public void changeAddress (String address, String postcode, String city){
         addressInput.click();
         addressInput.clear();
         addressInput.sendKeys(address);
@@ -92,21 +92,21 @@ public class AddressPage {
         cityInput.sendKeys(city);
     }
 
-    public static void selectCountry(){
+    public void selectCountry(){
         countryInput.click();
         Select roleDropDown = new Select(countryInput);
         roleDropDown.selectByValue("17");
     }
 
-    public static void saveNewAddress(){
+    public void saveNewAddress(){
         saveButton.click();
     }
 
-    public static void checkTheCorrectnessOfAddingANewAddress(){
+    public void checkTheCorrectnessOfAddingANewAddress(){
         Assert.assertEquals("Address successfully added!", message.getText());
     }
 
-    public static void deleteAddressAndLogOut(){
+    public void deleteAddressAndLogOut(){
         //Mozliwosc usuniecia wszystkich dodanych adresow
 //        int deleteElementsCount = deleteElements.size();
 //        for (int i = 0; i < deleteElementsCount; i++){
@@ -115,7 +115,7 @@ public class AddressPage {
 //
 //        Assert.assertEquals("Address successfully deleted!", message.getText());
 //        Assert.assertEquals(0, deleteElements.size());
-        System.out.println("Liczba adresów użytkownika: " + deleteElements.size());
+//        System.out.println("Liczba adresów użytkownika: " + deleteElements.size());
 
         signOutButton.click();
     }
