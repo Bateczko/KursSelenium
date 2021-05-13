@@ -65,7 +65,6 @@ public class AddNewUserAddressSteps {
 
     @And("^User deletes address, and removes the address and logs out of the account$")
     public void userDeletesAddressAndRemovesTheAddressAndLogsOutOfTheAccount() {
-
         AddressPage addressPage = new AddressPage(driver);
         addressPage.deleteAddressAndLogOut();
     }
