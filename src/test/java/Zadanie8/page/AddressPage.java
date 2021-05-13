@@ -108,13 +108,13 @@ public class AddressPage {
 
     public static void deleteAddressAndLogOut(){
         //Mozliwosc usuniecia wszystkich dodanych adresow
-        int deleteElementsCount = deleteElements.size();
-        for (int i = 0; i < deleteElementsCount; i++){
-            deleteButton.click();
-        }
-
-        Assert.assertEquals("Address successfully deleted!", message.getText());
-        Assert.assertEquals(0, deleteElements.size());
+//        int deleteElementsCount = deleteElements.size();
+//        for (int i = 0; i < deleteElementsCount; i++){
+//            deleteButton.click();
+//        }
+//
+//        Assert.assertEquals("Address successfully deleted!", message.getText());
+//        Assert.assertEquals(0, deleteElements.size());
         System.out.println("Liczba adresów użytkownika: " + deleteElements.size());
 
         signOutButton.click();
